@@ -19,7 +19,8 @@
             <div class="left-text">
                 Tasker
             </div>
-            <input type="button" class="AddBtn" value="+Add New" id="AddBtn">
+            <button type="button" class="btn btn-success" id="AddBtn" style="font-weight: bold;">+Add New</button>
+            <!-- <input type="button" class="AddBtn" value="+Add New" id="AddBtn"> -->
         </div>
     </header>
     <div class="modal" tabindex="-1">
@@ -29,11 +30,11 @@
                     <h5 class="modal-title">Add New Task</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="modal_X"></button>
                 </div>
-                <form action="">
+                <form action="" id="modal-form">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Image url</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="http://image.com">
+                            <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="http://image.com">
                         </div>
                         <div class="mb-3">
                             <label for="formGroupExampleInput2" class="form-label">Task Title</label>
@@ -60,43 +61,8 @@
     
     <section>
         <ul class="class-list">
-            <li class="class-card">
-                <div class="trashcan-container">
-                    <i class="fas fa-trash-alt trashcan"></i>
-                </div>
-                <img src="https://w.namu.la/s/5d8c08a3dd277645c31657307c11388da5758b4b53a199e2342d7657998755084eb09301a78a96af346dfb61f9f0987dac8f4b1410391c9827b3625e85634897f744e8b72a1dd7f45197a6779c6b2a3e" alt="코딩하는 사진" class="class-image">
-                <div class="class-container">
-                    <div class="class-desc">
-                        <div class="desc-title">알고리즘 학습을 통한 문제해결력 향상</div>
-                        <div class="desc-detail">여러가지 알고리즘 사이트와 문제, 소스코드</div>
-                        
-                    </div>
-                    <div class="d-grid gap-2 d-md-block btncenter" >
-                        <button class="btn btn-primary" style="border-radius: 20px;" type="button">Button</button>
-                    </div>
-                </div>
-                
-            </li>
-            <li class="class-card">
-                <img src="https://w.namu.la/s/5d8c08a3dd277645c31657307c11388da5758b4b53a199e2342d7657998755084eb09301a78a96af346dfb61f9f0987dac8f4b1410391c9827b3625e85634897f744e8b72a1dd7f45197a6779c6b2a3e"
-                    alt="코딩하는 사진" class="class-image">
-                <div class="class-container">
-                    <div class="class-desc">
-                        <div class="desc-title">알고리즘 학습을 통한 문제해결력 향상</div>
-                        <div class="desc-detail">여러가지 알고리즘 사이트와 문제, 소스코드</div>
-                    </div>
-                </div>
-            </li>
-            <li class="class-card">
-                <img src="https://w.namu.la/s/5d8c08a3dd277645c31657307c11388da5758b4b53a199e2342d7657998755084eb09301a78a96af346dfb61f9f0987dac8f4b1410391c9827b3625e85634897f744e8b72a1dd7f45197a6779c6b2a3e"
-                    alt="코딩하는 사진" class="class-image">
-                <div class="class-container">
-                    <div class="class-desc">
-                        <div class="desc-title">알고리즘 학습을 통한 문제해결력 향상</div>
-                        <div class="desc-detail">여러가지 알고리즘 사이트와 문제, 소스코드</div>
-                    </div>
-                </div>
-            </li>
+            
+            
         </ul>
     </section>
     <script src="index.js"></script>

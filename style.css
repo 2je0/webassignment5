@@ -42,8 +42,6 @@ body {
   display: flex;
   padding: 0 5rem 5rem 0;
   margin: 80px 15%;
-  overflow: hidden;
-  width: 100%;
 }
 .class-card {
   width: 400px;
@@ -97,8 +95,13 @@ li a:hover {
   border-width: thin;
   border-radius: 0.5rem;
   padding: 5px;
-  margin: 15px 15px 0 0;
+  margin: 15px 15px 10px 0;
   color: #d14d62;
+}
+.trashcan:hover {
+  cursor: pointer;
+  background-color: #d14d62;
+  color: #fff;
 }
 
 .btncenter {
@@ -106,4 +109,7 @@ li a:hover {
   width: 100%;
   margin-top: 30px;
   text-align: center;
+}
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
 }
