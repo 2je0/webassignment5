@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  color: blue;
+  margin: 0;
+}
+.head-container {
+  background-color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.left-text {
+  color: #177770;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-left: 10px;
+}
+
+.AddBtn {
+  background-color: #107a54;
+  /* border: none; */
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 5px 15px;
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+.AddBtn:hover {
+  cursor: pointer;
+}
+
+.btnset {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* card */
+.class-list {
+  list-style: none;
+  display: flex;
+  padding: 0 5rem 5rem 0;
+  margin: 80px 15%;
+  overflow: hidden;
+  width: 100%;
+}
+.class-card {
+  width: 400px;
+  border-radius: 9px;
+  box-shadow: 15px 15px 15px 5px rgba(25, 42, 70, 0.2);
+  background-color: #fff;
+  margin: 15px 30px;
+  transition: 0.2s;
+}
+.class-card:hover {
+  transform: scale(1.05, 1.05);
+}
+.class-image {
+  /* width: 100%; */
+  width: 400px;
+  height: 300px;
+  border-radius: 8px 8px 0 0;
+}
+.class-container {
+  width: 100%;
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+.desc-title {
+  font-weight: bold;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.8rem 0;
+  text-align: center;
+}
+.desc-detail {
+  font-size: 0.9rem;
+  color: rgb(100, 96, 96);
+  line-height: 1.2rem;
+  text-align: center;
+}
+li a {
+  all: unset;
+}
+li a:hover {
+  cursor: pointer;
+}
+.trashcan-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.trashcan {
+  font-size: 1.7rem;
+  border: solid;
+  border-width: thin;
+  border-radius: 0.5rem;
+  padding: 5px;
+  margin: 15px 15px 0 0;
+  color: #d14d62;
+}
+
+.btncenter {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
