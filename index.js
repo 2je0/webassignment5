@@ -3,11 +3,11 @@ $('#AddBtn').on('click', function () {
     $('.modal').show();
     $('.modal-dialog').animate({
         opacity: "0",
-        top: '40px'
+        top: '20px'
     },0);
     $('.modal-dialog').animate({
         opacity: "1",
-        top: '80px'
+        top: '50px'
     },500);
 });
 $('#modal_X').on('click', function () {
