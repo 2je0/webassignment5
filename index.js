@@ -19,6 +19,10 @@ $('#modal_close').on('click', function () {
 
 
 let listcnt = 0;
+// function getListCnt() {
+//   const ref = localStorage.getItem('numOfContent');
+//   if (ref) listcnt = ref;
+// }
 const modalForm = document.getElementById('modal-form');
 const modalInput1 = document.getElementById('formGroupExampleInput1'); //url
 const modalInput2 = document.getElementById('formGroupExampleInput2'); //title
@@ -32,7 +36,8 @@ modalForm.addEventListener('submit', function(event) {
     event.preventDefault();
     if (listcnt < 3) {
         addList(modalInput1.value, modalInput2.value, modalInput3.value, modalInput4.value,);
-        listcnt++;
+      listcnt++;
+      // localStorage.setItem('numOfContent', listcnt);
     }
     else {
         alert("Too many lists (up to 3)");
@@ -70,9 +75,8 @@ function addToLocalStorage(contents) {
 }
 
 function renderContents(contents) {
-    mainlist.innerHTML = "";
-    contents.forEach(function(item){
-
+  mainlist.innerHTML = "";
+  contents.forEach(function (item) {
         const li = document.createElement('li');
         li.setAttribute('class','class-card');
         li.setAttribute('data-key',item.id);
@@ -100,10 +104,12 @@ function renderContents(contents) {
 
 function getFromLocalStorage() {
   const reference = localStorage.getItem('contents');
+  
   // if reference exists
   if (reference) {
     // converts back to array and store it in todos array
     listarray = JSON.parse(reference);
+    listcnt = listarray.length;
     renderContents(listarray);
   }
 }
@@ -114,7 +120,8 @@ mainlist.addEventListener('click', function(event) {
     if (event.target.classList.contains('trashcan')) {
     // get id from data-key attribute's value of parent <li> where the delete-button is present
         deleteList(event.target.parentElement.parentElement.getAttribute('data-key'));
-        listcnt--;
+      listcnt--;
+      // localStorage.setItem('numOfContent', listcnt);
   }
 });
 
