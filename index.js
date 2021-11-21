@@ -18,11 +18,7 @@ $('#modal_close').on('click', function () {
 });
 
 
-let listcnt = 0;
-// function getListCnt() {
-//   const ref = localStorage.getItem('numOfContent');
-//   if (ref) listcnt = ref;
-// }
+let listcnt = 0; // the number of list contents
 const modalForm = document.getElementById('modal-form');
 const modalInput1 = document.getElementById('formGroupExampleInput1'); //url
 const modalInput2 = document.getElementById('formGroupExampleInput2'); //title
@@ -34,22 +30,25 @@ let listarray = [];
 
 modalForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    if (listcnt < 3) {
+    //dont submit data logic
+    if (listcnt < 3) { //cards are used and in one row, a maximum of 3 cards are placed
         addList(modalInput1.value, modalInput2.value, modalInput3.value, modalInput4.value,);
       
-      // localStorage.setItem('numOfContent', listcnt);
     }
     else {
         alert("Too many lists (up to 3)");
     }
     
 });
-
-
-function addList(item1,item2,item3,item4,) {
-  if (item1 !== '' &&item2 !== '' &&item3 !== '' &&item4 !== '') {
-    listcnt++;
-    const content = {
+// let regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+function addList(item1, item2, item3, item4,) {
+  // if (!regex.test(item1)) {
+  //   alert("invalid URL");
+  //   return;
+  // }
+  if (item1 !== '' &&item2 !== '' &&item3 !== '' &&item4 !== '') { // empty input handling
+    listcnt++; // the number of list contents update
+    const content = { // make list contents which should store in local storage 
         id: Date.now(),
         url: item1,
         title: item2,
@@ -64,25 +63,31 @@ function addList(item1,item2,item3,item4,) {
     modalInput2.value = "";
     modalInput3.value = "";
     modalInput4.value = "";
+    $('.modal').hide();
+    //modal input initialize and modal window hide
+  }
+  else {
+    alert("be sure that all inputs sections are non-empty!");
   }
 }
 
 function addToLocalStorage(contents) {
-    localStorage.setItem('contents',JSON.stringify(contents));
-    // console.log("before render");
+  localStorage.setItem('contents', JSON.stringify(contents));
+  //local storage can store only data which consist of strings
     renderContents(contents);
-    // console.log("after render");
 }
 
 function renderContents(contents) {
   mainlist.innerHTML = "";
+  //mainlist initailized
+  //and add li components
   contents.forEach(function (item) {
         const li = document.createElement('li');
         li.setAttribute('class','class-card');
         li.setAttribute('data-key',item.id);
 
 
-
+        //make listcontents
         li.innerHTML = `<div class="trashcan-container">
                 <i class="fas fa-trash-alt trashcan"></i>
             </div>
@@ -114,6 +119,7 @@ function getFromLocalStorage() {
   }
 }
 getFromLocalStorage();
+//when page loading, get data from local storage
 
 mainlist.addEventListener('click', function(event) {
   // check if that is a delete-button
@@ -121,16 +127,14 @@ mainlist.addEventListener('click', function(event) {
     // get id from data-key attribute's value of parent <li> where the delete-button is present
         deleteList(event.target.parentElement.parentElement.getAttribute('data-key'));
       listcnt--;
-      // localStorage.setItem('numOfContent', listcnt);
   }
 });
 
 function deleteList(id) {
-  // filters out the <li> with the id and updates the todos array
+  // filters out the <li> with the id and updates the list array
     
     listarray = listarray.filter(function (item) {
-
-    // use != not !==, because here types are different. One is number and other is string
+      //filter can delete data which dont satisfy next line
     return item.id != id;
   });
 
