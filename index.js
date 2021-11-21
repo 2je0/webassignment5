@@ -36,7 +36,7 @@ modalForm.addEventListener('submit', function(event) {
     event.preventDefault();
     if (listcnt < 3) {
         addList(modalInput1.value, modalInput2.value, modalInput3.value, modalInput4.value,);
-      listcnt++;
+      
       // localStorage.setItem('numOfContent', listcnt);
     }
     else {
@@ -48,7 +48,7 @@ modalForm.addEventListener('submit', function(event) {
 
 function addList(item1,item2,item3,item4,) {
   if (item1 !== '' &&item2 !== '' &&item3 !== '' &&item4 !== '') {
-
+    listcnt++;
     const content = {
         id: Date.now(),
         url: item1,
